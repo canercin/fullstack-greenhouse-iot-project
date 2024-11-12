@@ -1,0 +1,45 @@
+<section class="vh-100" style="background-color: #508bfc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+            <h3 class="mb-5">Sign Up</h3>
+
+            <form [formGroup]="registerData" (ngSubmit)="register()">
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="typeEmailX-2">Email</label>
+                <input type="email" id="typeEmailX-2" class="form-control form-control-lg" formControlName="email"/>
+                <div *ngIf="registerData.get('email')?.invalid && registerData.get('email')?.touched" class="text-danger">
+                  {{ getErrorMessage('email') }}
+                </div>
+              </div>
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="typePasswordX-2">Password</label>
+                <input type="password" id="typePasswordX-2" class="form-control form-control-lg" formControlName="password"/>
+                <div *ngIf="registerData.get('password')?.invalid && registerData.get('password')?.touched" class="text-danger">
+                  {{ getErrorMessage('password') }}
+                </div>
+              </div>
+
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="typeRoleX-2">Authority</label>
+                <select id="typeRoleX-2" class="form-control form-control-lg" formControlName="role">
+                  <option value="" disabled>Select your role</option>
+                  <option value="1">User</option>
+                  <option value="0">Admin</option>
+                </select>
+                <div *ngIf="registerData.get('role')?.invalid && registerData.get('role')?.touched" class="text-danger">
+                  {{ getErrorMessage('authority') }}
+                </div>
+              </div>
+
+              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="registerData.invalid">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

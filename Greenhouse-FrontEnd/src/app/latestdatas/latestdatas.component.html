@@ -1,0 +1,48 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Kayıt Tarihi</th>
+    <th scope="col">Sıcaklık</th>
+    <th scope="col">Toprak Nemi</th>
+    <th scope="col">Ortam Nemi</th>
+    <th scope="col">Işık Yoğunluğu</th>
+    <th scope="col">Su Seviyesi</th>
+    <th scope="col">Operasyon Nedeni</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for(data of sensorData; track data.id){
+      <tr>
+        <td>{{data.stateTime}}</td>
+        <td>{{data.temperatureAsC}}</td>
+        <td>{{data.soilMoisture}}</td>
+        <td>{{data.humidity}}</td>
+        <td>{{data.lightAmount}}</td>
+        <td>{{data.waterLevel}}</td>
+        @switch (data.operationType){
+          @case (0) {
+            <td>Rutin bilgilendirme</td>
+          }
+          @case (1) {
+            <td>Isıtıcı açıldı</td>
+          }
+          @case (2) {
+            <td>Soğutucu açıldı</td>
+          }
+          @case (3) {
+            <td>Işıklar açıldı</td>
+          }
+          @case (4){
+            <td>Sulama yapıldı</td>
+          }
+          @case (5){
+            <td>Su deposu dolduruldu</td>
+          }
+          @default {
+            <td>Rutin bilgilendirme</td>
+          }
+        }
+      </tr>
+    }
+  </tbody>
+</table>

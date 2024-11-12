@@ -1,0 +1,33 @@
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3">
+        <a (click)="routeMain()" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Ana Sayfa</span>
+        </a>
+        @if (isAdmin){
+          <a (click)="routeAllUsers()" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Kullanıcılar</span>
+          </a>
+        }
+        <a (click)="routeAllDatas()" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-lock fa-fw me-3"></i><span>Bütün Veriler</span>
+        </a>
+        @if (isAdmin){
+          <a (click)="routeRegister()" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-line fa-fw me-3"></i><span>Kullanıcı Kaydet</span>
+          </a>
+        }
+        <a (click)="routeAverages()" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Ortalama Değerler</span>
+        </a>
+        <a (click)="logout()" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Çıkış</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+  <!-- Sidebar -->
